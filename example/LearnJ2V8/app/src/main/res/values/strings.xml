@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LearnJ2V8</string>
+
+    <string name="format_time">%s ms</string>
+</resources>
