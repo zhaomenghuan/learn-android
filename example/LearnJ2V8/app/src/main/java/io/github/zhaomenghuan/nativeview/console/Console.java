@@ -1,12 +1,13 @@
 package io.github.zhaomenghuan.nativeview.console;
 
 import android.util.Log;
+
 import com.eclipsesource.v8.V8;
 import com.eclipsesource.v8.V8Object;
 
 import io.github.zhaomenghuan.nativeview.core.NativeObject;
 
-public class Console extends NativeObject{
+public class Console extends NativeObject {
     private static String TAG = "AgreeSDK";
     private V8Object mObject;
 
@@ -33,9 +34,9 @@ public class Console extends NativeObject{
     @Override
     protected void initV8Object() {
         mObject = new V8Object(mRuntime);
-        mObject.registerJavaMethod(this, "error", "error", new Class<?>[] { String.class });
-        mObject.registerJavaMethod(this, "log", "log", new Class<?>[] { String.class });
-        mObject.registerJavaMethod(this, "warm", "warm", new Class<?>[] { String.class });
+        mObject.registerJavaMethod(this, "error", "error", new Class<?>[]{String.class});
+        mObject.registerJavaMethod(this, "log", "log", new Class<?>[]{String.class});
+        mObject.registerJavaMethod(this, "warm", "warm", new Class<?>[]{String.class});
     }
 
     @Override
