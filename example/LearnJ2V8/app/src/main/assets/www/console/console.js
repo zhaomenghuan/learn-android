@@ -1,5 +1,5 @@
 function __message(message, level) {
-    // print(message, level);
+    print(message, level);
 }
 
 function Console() {
@@ -243,9 +243,6 @@ Console.prototype.log = function (message) {
     __message(formatedMessage, "log");
 };
 Console.prototype.logMessage = function (message, messageType) {
-//    if (!global.android) {
-//        return;
-//    }
     var arrayToLog = [];
     if (message.length > 4000) {
         for (var i = 0; i * 4000 < message.length; i++) {

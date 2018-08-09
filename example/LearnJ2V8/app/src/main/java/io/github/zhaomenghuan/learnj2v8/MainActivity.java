@@ -1,8 +1,7 @@
 package io.github.zhaomenghuan.learnj2v8;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
 
 import com.eclipsesource.v8.V8;
 
@@ -23,13 +22,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         runtime = NVSDK.init();
-
         String script = FileUtil.getFromAssets(this, "www/index.js");
         runtime.executeScript(script);
 
-        TextView  tv = new TextView(this);
-        tv.setText("hello j2v8");
-        setContentView(tv);
+//        TextView tv = new TextView(this);
+//        tv.setText("hello j2v8");
+//        setContentView(tv);
 
 //        Button button = new Button(getApplicationContext(), runtime);
 //        runtime.add("button", button.getObject());
@@ -60,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
 //        person.release();
     }
 
-    public void finish()
-    {
+    public void finish() {
         super.finish();
         runtime.release();
     }
@@ -69,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean require(String file) {
         try {
-            StringBuilder buf=new StringBuilder();
+            StringBuilder buf = new StringBuilder();
             InputStream is = this.getAssets().open(file);
-            BufferedReader in= new BufferedReader(new InputStreamReader(is));
+            BufferedReader in = new BufferedReader(new InputStreamReader(is));
             String str;
-            while ((str=in.readLine()) != null) {
-                buf.append(str+"\n");
+            while ((str = in.readLine()) != null) {
+                buf.append(str + "\n");
             }
             in.close();
             runtime.executeScript("var module={}; module.exports = {}; var exports = module.exports;" + buf.toString());
